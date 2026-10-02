@@ -11,7 +11,11 @@
 
 <body>
     <header>
-        <a href="index.html">ポケモン検索サイト</a>
+        <h1>ポケモン検索サイト</h1>
+        <a id="reload-btn" href="index.html">
+            <span class="reload-icon">🔄</span>
+            <span class="reload-text">ポケモンを更新する</span>
+        </a>
     </header>
     <main>
         <div class="show-container" id="show-container">
@@ -34,6 +38,12 @@
                 <div class="card">
                     <div class="img6"></div>
                 </div>
+                <div class="card">
+                    <div class="img7"></div>
+                </div>
+                <div class="card">
+                    <div class="img8"></div>
+                </div>
 
                 <div class="card">
                     <div class="img1"></div>
@@ -53,9 +63,15 @@
                 <div class="card">
                     <div class="img6"></div>
                 </div>
+                <div class="card">
+                    <div class="img7"></div>
+                </div>
+                <div class="card">
+                    <div class="img8"></div>
+                </div>
             </div>
         </div>
-          <h2>ポケモンの図鑑番号を入力して検索</h2>
+        <h2>ポケモンの図鑑番号を入力して検索</h2>
         <div class="search-container" id="search-container">
             <input type="number" id="inputId" placeholder="ポケモンの図鑑番号を入力してください">
             <button id="search">検索</button>

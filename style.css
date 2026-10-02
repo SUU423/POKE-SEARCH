@@ -7,25 +7,52 @@
 body {
     display: flex;
     flex-direction: column;
-    min-height: 100vh; /* ビューポートの高さに合わせて最小の高さを設定 (画面いっぱいにbodyを拡張)*/
+    min-height: 100vh;
+    /* ビューポートの高さに合わせて最小の高さを設定 (画面いっぱいにbodyを拡張)*/
 }
 
 /* 1. ヘッダーとメインのデザイン */
 header {
     background-color: rgb(253, 95, 95);
     color: rgb(0, 0, 0);
-    padding: 15px 2%;
+    padding: 20px 2%;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
 
 }
 
-header a {
-    font-size: 45px;
+header h1 {
+    font-size: 50px;
+    font-family: "ヒラギノ丸ゴ ProN", "Hiragino Maru Gothic ProN", "HG丸ｺﾞｼｯｸM-PRO", "HGMaruGothicMPRO", sans-serif;
     margin: 0;
     text-align: center;
     text-decoration: none;
     color: rgb(0, 0, 0);
     display: block;
+}
+
+.reload-icon {
+    display: none;
+}
+
+.reload-text {
+    display: inline;
+}
+
+#reload-btn {
+    position: absolute;
+    right: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    background-color: white;
+    color: #ff4747;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    text-decoration: none;
 }
 
 main {
@@ -125,6 +152,7 @@ h2 {
     background-color: #007bff;
     color: white;
     cursor: pointer;
+    border-radius: 50%;
 }
 
 .result-page {
@@ -144,7 +172,7 @@ h2 {
     display: flex;
     align-items: center;
     justify-content: center;
-    gap: 60px;
+    gap: 70px;
     margin-top: 20px;
     padding: 40px 50px;
 }
@@ -180,8 +208,8 @@ h2 {
    スマホ用レイアウト（画面幅768px以下の場合）
 ========================================= */
 @media (max-width: 968px) {
-    
-.scroll-track {
+
+    .scroll-track {
         animation: loop-scroll 30s linear infinite;
     }
 
@@ -190,10 +218,11 @@ h2 {
     }
 
     .result-page {
-        width: 80%;
-        height: 80%;
-        top: 15%;
-        left: 10%;
+        width: 90%;
+        height: 90%;
+        top: 5%;
+        left: 5%;
+        overflow-y: auto;
     }
 
     .result-container {
@@ -204,16 +233,18 @@ h2 {
     }
 
     .detail-image img {
-        width: 220px;
-        height: 220px;
-
+        max-width: 100%;
+        /* 横幅が枠をはみ出さないようにする */
+        max-height: 220px;
+        /* 縦幅が大きくなりすぎないように制限（数値はお好みで調整OK） */
+        object-fit: contain;
     }
 
     .detail-container {
         font-size: 20px;
     }
 
-    header a {
+    header h1 {
         font-size: 30px;
     }
 
@@ -221,11 +252,28 @@ h2 {
         width: 330px;
         height: 50px;
         font-size: 16px;
-    }   
+    }
 
     #search {
         padding: 8px 16px;
         font-size: 14px;
         border-radius: 50%;
+    }
+
+    .reload-icon {
+        display: block;
+        object-fit: contain;
+        text-align: center;
+        font-size: 30px;
+    }
+
+    #reload-btn {
+        background-color: rgb(253, 95, 95);
+    }
+
+    /* 代わりにテキストを隠す */
+    .reload-text {
+        display: none;
+        box-shadow: none;
     }
 }

@@ -20,8 +20,8 @@ btn.addEventListener('click', async () => {
     detailVoice.innerHTML = '';
 
     try {
-        const inputId = input.value.toLowerCase();
-        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${inputId}`);
+        const POKEID = input.value.normalize('NFKC').toLowerCase();// 入力値を正規化して小文字に変換
+        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${POKEID}`);
         const data = await response.json();
 
         const name = data.name;
@@ -30,8 +30,9 @@ btn.addEventListener('click', async () => {
         const weight = data.weight / 10;
         const imageUrl = data.sprites.other["official-artwork"].front_default;
         const voice = data.cries.latest;
+        const id = data.id;
 
-        detailName.innerHTML = `<p>名前: ${name}</p>`;
+        detailName.innerHTML = `<p>No.${id} ${name}</p>`;
         detailType.innerHTML = `<p>タイプ: ${type}</p>`;
         detailHeight.innerHTML = `<p>身長: ${height}M</p>`;
         detailWeight.innerHTML = `<p>体重: ${weight}kg</p>`;
@@ -48,7 +49,7 @@ btn.addEventListener('click', async () => {
 
 //ランダムに画像を表示する動作
 window.addEventListener('DOMContentLoaded', async () => {
-    for (let i = 1; i <= 6; i++) {
+    for (let i = 1; i <= 8; i++) {
         const randomId = Math.floor(Math.random() * 1025) + 1;
         const response2 = await fetch(`https://pokeapi.co/api/v2/pokemon/${randomId}`);
         const data2 = await response2.json();
@@ -59,12 +60,13 @@ window.addEventListener('DOMContentLoaded', async () => {
         const HEIGHT = data2.height / 10;
         const WEIGHT = data2.weight / 10;
         const VOICE = data2.cries.latest;
+        const ID = data2.id;
 
         const showimg = document.querySelectorAll(`.img${i}`);
         showimg.forEach(div => {
             div.innerHTML = `<img src="${IMAGEURL}" alt="エラーが発生しました">`;
             div.addEventListener('click', () => {
-                detailName.innerHTML = `<p>名前: ${NAME}</p>`;
+                detailName.innerHTML = `<p>No.${ID} ${NAME}</p>`;
                 detailType.innerHTML = `<p>タイプ: ${TYPE}</p>`;
                 detailHeight.innerHTML = `<p>身長: ${HEIGHT}M</p>`;
                 detailWeight.innerHTML = `<p>体重: ${WEIGHT}kg</p>`;
