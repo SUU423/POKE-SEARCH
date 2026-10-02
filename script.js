@@ -86,3 +86,4 @@ btn.addEventListener('click', () => {
 closeBtn.addEventListener('click', () => {
     resultPage.style.display = 'none';
 });
+
