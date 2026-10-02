@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PokemonSearch</title>
+    <script src="script.js" defer></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <a href="index.html">ポケモン検索サイト</a>
+    </header>
+    <main>
+        <div class="show-container" id="show-container">
+            <div class="scroll-track">
+                <div class="card">
+                    <div class="img1"></div>
+                </div>
+                <div class="card">
+                    <div class="img2"></div>
+                </div>
+                <div class="card">
+                    <div class="img3"></div>
+                </div>
+                <div class="card">
+                    <div class="img4"></div>
+                </div>
+                <div class="card">
+                    <div class="img5"></div>
+                </div>
+                <div class="card">
+                    <div class="img6"></div>
+                </div>
+
+                <div class="card">
+                    <div class="img1"></div>
+                </div>
+                <div class="card">
+                    <div class="img2"></div>
+                </div>
+                <div class="card">
+                    <div class="img3"></div>
+                </div>
+                <div class="card">
+                    <div class="img4"></div>
+                </div>
+                <div class="card">
+                    <div class="img5"></div>
+                </div>
+                <div class="card">
+                    <div class="img6"></div>
+                </div>
+            </div>
+        </div>
+          <h2>ポケモンの図鑑番号を入力して検索</h2>
+        <div class="search-container" id="search-container">
+            <input type="number" id="inputId" placeholder="ポケモンの図鑑番号を入力してください">
+            <button id="search">検索</button>
+        </div>
+    </main>
+
+    <!-- 検索結果表示エリア -->
+    <div class="result-page" id="result-page" style="display: none;">
+        <button id="close-btn" class="close-btn">✕</button>
+
+        <div class="result-container" id="result-container">
+
+            <div class="detail-container" id="detail-container">
+                <div class="detail-name" id="detail-name"></div>
+                <div class="detail-type" id="detail-type"></div>
+                <div class="detail-height" id="detail-height"></div>
+                <div class="detail-weight" id="detail-weight"></div>
+            </div>
+
+            <div class="detail-image" id="detail-image"></div>
+        </div>
+    </div>
+
+</body>
