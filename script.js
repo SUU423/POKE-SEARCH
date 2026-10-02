@@ -8,6 +8,7 @@ const detailWeight = document.getElementById('detail-weight');
 const detailImage = document.getElementById('detail-image');
 const resultPage = document.getElementById('result-page');
 const closeBtn = document.getElementById('close-btn');
+const detailVoice = document.getElementById('detail-voice');
 
 //ID検索による動作
 btn.addEventListener('click', async () => {
@@ -16,6 +17,7 @@ btn.addEventListener('click', async () => {
     detailHeight.innerHTML = '';
     detailWeight.innerHTML = '';
     detailImage.innerHTML = '';
+    detailVoice.innerHTML = '';
 
     try {
         const inputId = input.value.toLowerCase();
@@ -27,11 +29,13 @@ btn.addEventListener('click', async () => {
         const height = data.height / 10;
         const weight = data.weight / 10;
         const imageUrl = data.sprites.other["official-artwork"].front_default;
+        const voice = data.cries.latest;
 
         detailName.innerHTML = `<p>名前: ${name}</p>`;
         detailType.innerHTML = `<p>タイプ: ${type}</p>`;
         detailHeight.innerHTML = `<p>身長: ${height}M</p>`;
         detailWeight.innerHTML = `<p>体重: ${weight}kg</p>`;
+        detailVoice.innerHTML = `<audio controls><source src="${voice}" type="audio/mpeg"></audio>`;
         detailImage.innerHTML = `<img src="${imageUrl}" alt="${name}">`;
         console.log(data);
     }
@@ -54,6 +58,7 @@ window.addEventListener('DOMContentLoaded', async () => {
         const TYPE = data2.types.map(item => item.type.name).join(" / ");
         const HEIGHT = data2.height / 10;
         const WEIGHT = data2.weight / 10;
+        const VOICE = data2.cries.latest;
 
         const showimg = document.querySelectorAll(`.img${i}`);
         showimg.forEach(div => {
@@ -63,6 +68,7 @@ window.addEventListener('DOMContentLoaded', async () => {
                 detailType.innerHTML = `<p>タイプ: ${TYPE}</p>`;
                 detailHeight.innerHTML = `<p>身長: ${HEIGHT}M</p>`;
                 detailWeight.innerHTML = `<p>体重: ${WEIGHT}kg</p>`;
+                detailVoice.innerHTML = `<audio controls><source src="${VOICE}" type="audio/mpeg"></audio>`;
                 detailImage.innerHTML = `<img src="${IMAGEURL}" alt="${NAME}">`;
                 resultPage.style.display = 'block';
             });
