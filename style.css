@@ -129,6 +129,10 @@ h2 {
     font-size: 30px;
 }
 
+.ph {
+    display: none;
+}
+
 .search-container {
     display: flex;
     justify-content: center;
@@ -294,5 +298,13 @@ h2 {
 
     .poke-id {
         display: none;
+    }
+
+    .pc{
+        display: none;
+    }
+    
+    .ph{
+        display: block;
     }
 }
