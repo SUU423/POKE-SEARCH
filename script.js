@@ -80,7 +80,8 @@ window.addEventListener('DOMContentLoaded', async () => {
        showname.forEach(nameDiv => {
             nameDiv.innerHTML = `<p>No.${ID} ${NAME}</p>`;
         });
-    }});
+    }
+});
 
         //検索結果のページを表示する動作
         btn.addEventListener('click', () => {
@@ -91,3 +92,4 @@ window.addEventListener('DOMContentLoaded', async () => {
         closeBtn.addEventListener('click', () => {
             resultPage.style.display = 'none';
         });
+    
