@@ -47,7 +47,7 @@ btn.addEventListener('click', async () => {
 });
 
 
-//ランダムに画像を表示する動作
+//ランダムに画像と名前を表示する動作
 window.addEventListener('DOMContentLoaded', async () => {
     for (let i = 1; i <= 8; i++) {
         const randomId = Math.floor(Math.random() * 1025) + 1;
@@ -63,6 +63,7 @@ window.addEventListener('DOMContentLoaded', async () => {
         const ID = data2.id;
 
         const showimg = document.querySelectorAll(`.img${i}`);
+        const showname = document.querySelectorAll(`.name${i}`)
         showimg.forEach(div => {
             div.innerHTML = `<img src="${IMAGEURL}" alt="エラーが発生しました">`;
             div.addEventListener('click', () => {
@@ -75,16 +76,18 @@ window.addEventListener('DOMContentLoaded', async () => {
                 resultPage.style.display = 'block';
             });
         });
-    }
-});
 
+       showname.forEach(nameDiv => {
+            nameDiv.innerHTML = `<p><span class="poke-id">No.${ID} </span>${NAME}</p>`;
+        });
+    }});
 
-//検索結果のページを表示する動作
-btn.addEventListener('click', () => {
-    resultPage.style.display = 'block';
-});
+        //検索結果のページを表示する動作
+        btn.addEventListener('click', () => {
+            resultPage.style.display = 'block';
+        });
 
-// 検索結果ページを閉じる動作
-closeBtn.addEventListener('click', () => {
-    resultPage.style.display = 'none';
-});
+        // 検索結果ページを閉じる動作
+        closeBtn.addEventListener('click', () => {
+            resultPage.style.display = 'none';
+        });
