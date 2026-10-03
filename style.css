@@ -229,9 +229,7 @@ h2 {
 }
 
 /* 5. レスポンシブデザイン */
-/* =========================================
-   スマホ用レイアウト（画面幅768px以下の場合）
-========================================= */
+
 @media (max-width: 768px) {
 
     .scroll-track {
@@ -239,7 +237,16 @@ h2 {
     }
 
     .card {
+        min-height: 250px;
         width: 200px;
+    }
+    .card p{
+        display: none;
+    }
+
+    .card img{
+        max-width: 95%;
+        margin: 0 auto;
     }
 
     .result-page {

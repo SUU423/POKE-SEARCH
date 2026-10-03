@@ -78,7 +78,7 @@ window.addEventListener('DOMContentLoaded', async () => {
         });
 
        showname.forEach(nameDiv => {
-            nameDiv.innerHTML = `<p><span class="poke-id">No.${ID} </span>${NAME}</p>`;
+            nameDiv.innerHTML = `<p>No.${ID} ${NAME}</p>`;
         });
     }});
 
