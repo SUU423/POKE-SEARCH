@@ -84,6 +84,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     }
 });
 
+
         //検索結果のページを表示する動作
         btn.addEventListener('click', () => {
             resultPage.style.display = 'block';
