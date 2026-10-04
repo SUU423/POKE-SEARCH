@@ -19,6 +19,7 @@ btn.addEventListener('click', async () => {
     detailWeight.innerHTML = '';
     detailImage.innerHTML = '';
     detailVoice.innerHTML = '';
+    input.blur(); // ★この1行を追加！テキストボックスのフォーカスを外してキーボードを閉じる
 
     try {
         const POKEID = input.value.normalize('NFKC').toLowerCase();// 入力値を正規化して小文字に変換
