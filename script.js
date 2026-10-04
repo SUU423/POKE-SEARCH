@@ -10,6 +10,7 @@ const resultPage = document.getElementById('result-page');
 const closeBtn = document.getElementById('close-btn');
 const detailVoice = document.getElementById('detail-voice');
 
+
 //ID検索による動作
 btn.addEventListener('click', async () => {
     detailName.innerHTML = '';
