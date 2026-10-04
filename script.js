@@ -94,4 +94,5 @@ window.addEventListener('DOMContentLoaded', async () => {
         closeBtn.addEventListener('click', () => {
             resultPage.style.display = 'none';
         });
+        
     
