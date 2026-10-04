@@ -239,6 +239,13 @@ h2 {
     min-width: 250px;
 }
 
+.detail-container p{
+    color: #333;
+    font-size: clamp(20px, 4vw, 28px);
+    font-weight: bold;
+    margin-bottom:10px ;
+}
+
 .detail-name {
     /* ★変更：画面幅に合わせて文字サイズを自動調整（最小20px 〜 最大28px） */
     font-size: clamp(20px, 4vw, 28px);
