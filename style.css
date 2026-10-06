@@ -177,11 +177,11 @@ h2 {
 .result-page {
     position: fixed;
     z-index: 1000;
-    width: 60%;
-    height: 60%;
+    width: 80%;
+    height: 80%;
     background-color: blanchedalmond;
-    top: 20%;
-    left: 20%;
+    top: 10%;
+    left: 10%;
     border: 10px double #333;
     border-radius: 10px;
     overflow-y: auto;
@@ -206,7 +206,7 @@ h2 {
     justify-content: center;
     gap: 5px;
     margin: auto;
-    padding: 40px 50px;
+    padding: 10px 30px;
 }
 
 .detail-image img {
