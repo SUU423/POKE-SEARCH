@@ -178,7 +178,7 @@ h2 {
     position: fixed;
     z-index: 1000;
     width: 90%;
-    max-width: 800px;
+    max-width: 1000px;
     height: auto;
     max-height: 85vh;
     background-color: blanchedalmond;
@@ -209,7 +209,7 @@ h2 {
     justify-content: center;
     gap: 5px;
     margin: auto;
-    padding: 20px 30px;
+    padding: 15px 20px;
 }
 
 .detail-image img {
