@@ -268,6 +268,39 @@ h2 {
 }
 
 
+
+/* ▼ type-showは横並びのまま */
+.type-show {
+    display: flex;
+    gap: 10px;
+}
+
+/* ▼ type1, type2 を消して、新しく作った type-badge を縦並びにする */
+.type-badge {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.type-badge img {
+    width: 45px;
+    height: 45px;
+    margin-bottom: 4px;
+}
+
+.type-badge span {
+    margin: 0;
+    font-size: 13px;
+    font-weight: bold;
+}
+
+.type-container{
+display: flex;
+gap: 2px;
+}
+
+
+
 /* レスポンシブデザイン */
 
 @media (max-width: 768px) {
