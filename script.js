@@ -57,8 +57,15 @@ btn.addEventListener('click', async () => {
         const speciesData = await speciesResponse.json();
         //取得したデータを格納
         const name = data.name;
-        const jpName = speciesData.names.find(nameObj => nameObj.language.name === "ja");
-        const JPN_NAME = jpName ? jpName.name : data.name;//ポケモンの日本語名を取得
+        const jpName = speciesData.names.find(nameObj => nameObj.language.name === "ja");//ポケモンの日本語名を取得
+        const JPN_NAME = jpName ? jpName.name : data.name;
+        /*↑を別の方法で書く
+        let JPN_NAME;
+        if (jpName) {
+            JPN_NAME = jpName.name;日本語データが見つかった場合
+        } else {
+            JPN_NAME = data.name;日本語データが見つからなかった場合
+        }*/
         const typeImagesHtml = data.types.map(item => {//タイプの日本語名を取得
             const enType = item.type.name;
             const jaType = typeTranslate[enType];
