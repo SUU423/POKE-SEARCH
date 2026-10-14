@@ -297,6 +297,7 @@ h2 {
 .type-container{
 display: flex;
 gap: 2px;
+justify-content: center;
 }
 
 
