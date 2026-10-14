@@ -294,10 +294,10 @@ h2 {
     font-weight: bold;
 }
 
-.type-container{
-display: flex;
-gap: 2px;
-justify-content: center;
+.type-container {
+    display: flex;
+    gap: 2px;
+    justify-content: center;
 }
 
 
@@ -388,5 +388,11 @@ justify-content: center;
 
     .ph {
         display: block;
+    }
+
+    .type-container {
+        display: flex;
+        gap: 2px;
+        justify-content: center;
     }
 }
