@@ -8,8 +8,8 @@
 body {
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
-    /* ビューポートの高さに合わせて最小の高さを設定 (画面いっぱいにbodyを拡張)*/
+    min-height: 100vh; /* ビューポートの高さに合わせて最小の高さを設定 (画面いっぱいにbodyを拡張)*/
+    background-image: url('image/sunny.jpg');
     background-position: center 0%;
     background-repeat: no-repeat;
     background-size: cover;
