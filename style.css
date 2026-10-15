@@ -10,10 +10,26 @@ body {
     flex-direction: column;
     min-height: 100vh;
     /* ビューポートの高さに合わせて最小の高さを設定 (画面いっぱいにbodyを拡張)*/
-    background-image: url("image/haikei1.jpg");
     background-position: center 0%;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+/*背景切替*/
+.sunny{
+    background-image: url('image/sunny.jpg');
+}
+.cloudy{
+    background-image: url('image/cloudy.jpg');
+}
+.rain{
+    background-image: url('image/rain.jpg');
+}
+.snow{
+    background-image: url('image/snow.jpg');
+}
+.thunder{
+    background-image: url('image/thunder.jpg');
 }
 
 

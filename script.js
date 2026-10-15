@@ -1,3 +1,16 @@
+// 背景画像を裏側で静かに先読みしておく
+const preloadImages = [
+    'image/sunny.jpg',
+    'image/cloudy.jpg',
+    'image/rain.jpg',
+    'image/snow.jpg',
+    'image/thunder.jpg'
+];
+preloadImages.forEach((src) => {
+    const img = new Image();
+    img.src = src;
+});
+
 //定義
 const btn = document.getElementById('search');
 const input = document.getElementById('inputId');
@@ -11,29 +24,7 @@ const detailVoice = document.getElementById('detail-voice');
 const typeShow = document.getElementById('type-show');
 
 
-// ポケモンのタイプ翻訳辞書
-const typeTranslate = {
-    "normal": "ノーマル",
-    "fire": "ほのお",
-    "water": "みず",
-    "electric": "でんき",
-    "grass": "くさ",
-    "ice": "こおり",
-    "fighting": "かくとう",
-    "poison": "どく",
-    "ground": "じめん",
-    "flying": "ひこう",
-    "psychic": "エスパー",
-    "bug": "むし",
-    "rock": "いわ",
-    "ghost": "ゴースト",
-    "dragon": "ドラゴン",
-    "dark": "あく",
-    "steel": "はがね",
-    "fairy": "フェアリー"
-};
-
-//図鑑番号検索による動作
+//検索による動作
 
 //ボタンを押したときのアクション
 btn.addEventListener('click', async () => {
@@ -45,10 +36,18 @@ btn.addEventListener('click', async () => {
     typeShow.innerHTML = '';
     //テキストボックスのフォーカスを外してキーボードを閉じる
     input.blur();
-    resultPage.style.display = 'block';
+    
 
     try {
         const INPUTNAME = input.value.normalize('NFKC');
+
+        const hiddenCodes = ['0000', '1111', '2222', '3333', '4444']; // 設定した隠しコードのリスト
+        if (hiddenCodes.includes(INPUTNAME)) {
+            WEATHERTEST(INPUTNAME); // 背景を変更する関数を実行[cite: 8]
+            input.value = '';
+            resultPage.style.display = 'none'; // 検索窓の文字を空にしてリセット（お好みで）
+            return; // ★重要：ここで処理を終了させ、下のポケモン検索に進ませない
+        }
         const foundPokemon = pokeList.find(item => item.ja === INPUTNAME);
         const POKENAME = foundPokemon ? foundPokemon.en.toLowerCase() : INPUTNAME.toLowerCase();
         //APIでデータを取得
@@ -90,6 +89,7 @@ btn.addEventListener('click', async () => {
         detailVoice.innerHTML = `<audio controls><source src="${voice}" type="audio/mpeg"></audio>`;
         detailImage.innerHTML = `<img src="${imageUrl}" alt="${name}">`;
         document.querySelector('.aaa').style.display = 'block';
+        resultPage.style.display = 'block';
 
         console.log(data);
     }
@@ -98,6 +98,7 @@ btn.addEventListener('click', async () => {
         detailName.innerHTML =
             '<p>以下を確認してください</p><ul><li>綴りは合っているか</li><li>カタカナや数字で記載しているか</li><li>空白が入っていないか</li></ul> ';
         document.querySelector('.aaa').style.display = 'none';
+        resultPage.style.display = 'block';
     }
 });
 
@@ -163,4 +164,18 @@ closeBtn.addEventListener('click', () => {
     resultPage.style.display = 'none';
 });
 
-
+//背景の変更(テスト用)
+const WEATHERTEST = (INPUTNAME) => {
+    document.body.className = ''
+    if (INPUTNAME === '0000') {
+        document.body.classList.add('sunny')
+    } else if (INPUTNAME === '1111') {
+        document.body.classList.add('cloudy');
+    } else if (INPUTNAME === '2222') {
+        document.body.classList.add('rain');
+    } else if (INPUTNAME === '3333') {
+        document.body.classList.add('snow');
+    } else if (INPUTNAME === '4444') {
+        document.body.classList.add('thunder');
+    }
+}
