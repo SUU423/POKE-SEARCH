@@ -48,10 +48,11 @@ btn.addEventListener('click', async () => {
     resultPage.style.display = 'block';
 
     try {
-        // 入力値を正規化して小文字に変換
-        const POKEID = input.value.normalize('NFKC').toLowerCase();
+        const INPUTNAME = input.value.normalize('NFKC');
+        const foundPokemon = pokeList.find(item => item.ja === INPUTNAME);
+        const POKENAME = foundPokemon ? foundPokemon.en.toLowerCase() : INPUTNAME.toLowerCase();
         //APIでデータを取得
-        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${POKEID}`);
+        const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${POKENAME}`);
         const data = await response.json();
         const speciesResponse = await fetch(data.species.url);
         const speciesData = await speciesResponse.json();
@@ -88,12 +89,15 @@ btn.addEventListener('click', async () => {
         detailWeight.innerHTML = `<p>体重: ${weight}kg</p>`;
         detailVoice.innerHTML = `<audio controls><source src="${voice}" type="audio/mpeg"></audio>`;
         detailImage.innerHTML = `<img src="${imageUrl}" alt="${name}">`;
+        document.querySelector('.aaa').style.display = 'block';
+
         console.log(data);
     }
     catch (error) {
         //エラー時の挙動
-        detailName.innerHTML = '<p>正しい番号を入力してください。</p>';
-        console.error('Error fetching Pokémon data:', error);
+        detailName.innerHTML =
+            '<p>以下を確認してください</p><ul><li>綴りは合っているか</li><li>カタカナや数字で記載しているか</li><li>空白が入っていないか</li></ul> ';
+        document.querySelector('.aaa').style.display = 'none';
     }
 });
 
@@ -102,7 +106,7 @@ btn.addEventListener('click', async () => {
 window.addEventListener('DOMContentLoaded', async () => {
     for (let i = 1; i <= 8; i++) {
         //図鑑番号をランダムで決定
-        const randomId = Math.floor(Math.random() * 1025) + 1;
+        const randomId = Math.floor(Math.random() * 721) + 1;
         //APIでデータを取得
         const response2 = await fetch(`https://pokeapi.co/api/v2/pokemon/${randomId}`);
         const data2 = await response2.json();
@@ -143,6 +147,7 @@ window.addEventListener('DOMContentLoaded', async () => {
                 detailVoice.innerHTML = `<audio controls><source src="${VOICE}" type="audio/mpeg"></audio>`;
                 detailImage.innerHTML = `<img src="${IMAGEURL}" alt="${NAME}">`;
                 resultPage.style.display = 'block';
+                document.querySelector('.aaa').style.display = 'block';
             });
         });
         //スライドショーに名前を挿入

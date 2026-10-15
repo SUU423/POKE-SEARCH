@@ -10,7 +10,7 @@ body {
     flex-direction: column;
     min-height: 100vh;
     /* ビューポートの高さに合わせて最小の高さを設定 (画面いっぱいにbodyを拡張)*/
-    background-image: url(haikei1.jpg);
+    background-image: url("image/haikei1.jpg");
     background-position: center 0%;
     background-repeat: no-repeat;
     background-size: cover;
@@ -250,6 +250,10 @@ h2 {
     font-size: clamp(20px, 3vw, 35px);
     font-weight: bold;
     margin-bottom: 10px;
+}
+
+ul{
+    text-align: left;
 }
 
 .detail-name {
